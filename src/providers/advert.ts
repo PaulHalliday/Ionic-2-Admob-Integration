@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular'
 import { AdMob, AdMobOptions, AdMobAdExtras } from 'ionic-native';
 import 'rxjs/add/operator/map';
-
+plugin admob pro
 @Injectable()
 export class Advert {
   //AdMob IDs from the AdMob console
@@ -28,13 +28,13 @@ export class Advert {
     this.showBanner();
   }
 
-private registerAdMobEvents() {
-  document.addEventListener('onAdFailLoad', data => console.log(JSON.stringify(data)));
-  document.addEventListener('onAdLoaded', data => console.log(JSON.stringify(data)));
-  document.addEventListener('onAdPresent', data => console.log(JSON.stringify(data)));
-  document.addEventListener('onAdDismiss', data => console.log(JSON.stringify(data)));
-  document.addEventListener('onAdLeaveApp', data => console.log(JSON.stringify(data)));
-}
+  private registerAdMobEvents() {
+    document.addEventListener('onAdFailLoad', data => console.log(JSON.stringify(data)));
+    document.addEventListener('onAdLoaded', data => console.log(JSON.stringify(data)));
+    document.addEventListener('onAdPresent', data => console.log(JSON.stringify(data)));
+    document.addEventListener('onAdDismiss', data => console.log(JSON.stringify(data)));
+    document.addEventListener('onAdLeaveApp', data => console.log(JSON.stringify(data)));
+  }
 
   private setAdMobIds() {
     /* 
@@ -66,22 +66,22 @@ private registerAdMobEvents() {
     AdMob.setOptions(this.adOptions)
   }
 
-public showInterstitial() {
-  if (!AdMob) return false;
-  AdMob.prepareInterstitial(this.adMobId);
-  return true;
-}
+  public showInterstitial() {
+    if (!AdMob) return false;
+    AdMob.prepareInterstitial(this.adMobId.interstitial);
+    return true;
+  }
 
-public showBanner() {
-  if (!AdMob) return false;
+  public showBanner() {
+    if (!AdMob) return false;
 
-  AdMob.createBanner(this.adMobId);
-  return true;
-}
+    AdMob.createBanner(this.adMobId.banner);
+    return true;
+  }
 
-public removeAds() {
-  if (AdMob) AdMob.removeBanner();
-}
+  public removeAds() {
+    if (AdMob) AdMob.removeBanner();
+  }
 
 
 }
