@@ -17,7 +17,7 @@ export class Advert {
     });
   }
 
-  private initAds() {
+  private initAds():void {
     if (!AdMob) {
       console.log("AdMob not found.");
       return;
@@ -28,7 +28,7 @@ export class Advert {
     this.showBanner();
   }
 
-  private registerAdMobEvents() {
+  private registerAdMobEvents():void {
     document.addEventListener('onAdFailLoad', data => console.log(JSON.stringify(data)));
     document.addEventListener('onAdLoaded', data => console.log(JSON.stringify(data)));
     document.addEventListener('onAdPresent', data => console.log(JSON.stringify(data)));
@@ -36,7 +36,7 @@ export class Advert {
     document.addEventListener('onAdLeaveApp', data => console.log(JSON.stringify(data)));
   }
 
-  private setAdMobIds() {
+  private setAdMobIds():void {
     /* 
       Replace IDs with supplied ones via AdMob.
       Different one per platform allows for better analytics
@@ -55,7 +55,7 @@ export class Advert {
     }
   }
 
-  private setAdMobOptions() {
+  private setAdMobOptions():void {
     this.adOptions = {
       position: AdMob.AD_POSITION.CENTER,
       isTesting: false,
@@ -66,20 +66,20 @@ export class Advert {
     AdMob.setOptions(this.adOptions)
   }
 
-  public showInterstitial() {
+  public showInterstitial():boolean {
     if (!AdMob) return false;
     AdMob.prepareInterstitial({ adId: this.adMobId.interstitial });
     return true;
   }
 
-  public showBanner() {
+  public showBanner():boolean {
     if (!AdMob) return false;
 
     AdMob.createBanner({ adId: this.adMobId.banner });
     return true;
   }
 
-  public removeAds() {
+  public removeAds():void {
     if (AdMob) AdMob.removeBanner();
   }
 
