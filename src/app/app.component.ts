@@ -16,6 +16,10 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+      
+      //Example implementation
+      this.advert.showBanner();
+      setTimeout(this.advert.showInterstitial(), 10000);
     });
   }
 }
