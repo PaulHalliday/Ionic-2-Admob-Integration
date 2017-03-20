@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Platform } from 'ionic-angular'
 import { AdMob, AdMobOptions, AdMobAdExtras } from 'ionic-native';
 import 'rxjs/add/operator/map';
-plugin admob pro
+
 @Injectable()
 export class Advert {
   //AdMob IDs from the AdMob console
@@ -68,14 +68,14 @@ export class Advert {
 
   public showInterstitial() {
     if (!AdMob) return false;
-    AdMob.prepareInterstitial(this.adMobId.interstitial);
+    AdMob.prepareInterstitial({ adId: this.adMobId.interstitial });
     return true;
   }
 
   public showBanner() {
     if (!AdMob) return false;
 
-    AdMob.createBanner(this.adMobId.banner);
+    AdMob.createBanner({ adId: this.adMobId.banner });
     return true;
   }
 
