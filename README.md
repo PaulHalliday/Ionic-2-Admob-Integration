@@ -4,7 +4,7 @@ Ensure you've ran the following:
 
 `$ npm install`
 
-As well as this, make sure you've got the `ionic plugin add cordova-plugin-admobpro` installed.
+As well as this, make sure you've got the `cordova-plugin-admobpro` installed.
 
 `$ ionic plugin add cordova-plugin-admobpro`
 
